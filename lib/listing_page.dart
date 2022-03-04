@@ -13,7 +13,9 @@ class ListingPage extends StatelessWidget {
       backgroundColor: Colors.teal,
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Column(children: [
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
         GestureDetector(onTap: () {
           Navigator.pushNamed(context, AppRoutes.loginRoute);
         }, child: Text('Login-Page',style:TextStyle(color: Colors.white, fontSize: 22.0,),)),
@@ -37,7 +39,13 @@ class ListingPage extends StatelessWidget {
           GestureDetector(onTap: () {
             Navigator.pushNamed(context, AppRoutes.bmiRoute);
           }, child: Text('BMI-Page', style:TextStyle(color: Colors.white, fontSize: 22.0,),)),
+              SizedBox(height: 20,),
+              GestureDetector(onTap: () {
+                Navigator.pushNamed(context, AppRoutes.welcomeScreenRoute);
+              }, child: Text('Flash-Chat', style:TextStyle(color: Colors.white, fontSize: 22.0,),)),
+
     ]),
       ),);
   }
 }
+

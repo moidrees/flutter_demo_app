@@ -18,12 +18,15 @@ import 'package:first_demo_app/pages/loginModule/signup_page.dart';
 import 'package:first_demo_app/pages/quizzler/Quizzler.dart';
 import 'package:first_demo_app/utils/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'listing_page.dart';
 
 final ThemeData theme = ThemeData();
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const WidgetsDemo());
 }
 
@@ -47,11 +50,11 @@ class WidgetsDemo extends StatelessWidget {
         //"/": (context)=> const BallPage(),
         //"/": (context)=> const Quizzler(),
         //"/": (context)=> const FlyingBirdsPage(),
-        //'/': (context) => ListingPage(),
+        '/': (context) => const ListingPage(),
         //AppRoutes.loadingRoute: (context) => LoadingScreen(),
         //'/': (context) => LoadingScreen(),
         //'/': (context) => PriceScreen(),
-        '/': (context) => WelcomeScreen(),
+        AppRoutes.welcomeScreenRoute: (context) => WelcomeScreen(),
         AppRoutes.musicRoute: (context)=> const MusicPage(),
         AppRoutes.diceRoute: (context)=> const DicePage(),
         AppRoutes.destiniRoute: (context) => const DestiniPage(),
